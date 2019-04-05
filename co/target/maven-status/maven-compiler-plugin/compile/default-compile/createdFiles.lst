@@ -1,0 +1,8 @@
+co\ayu\dao\StudentDetails.class
+demo\co\MyResource.class
+co\ayu\controller\MainAPI.class
+co\ayu\to\ApiResponse.class
+co\ayu\service\Login.class
+co\ayu\service\Register.class
+co\ayu\Constants\TxnType.class
+co\ayu\to\ApiRequest.class
