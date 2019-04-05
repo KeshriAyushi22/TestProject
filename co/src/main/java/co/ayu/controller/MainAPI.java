@@ -19,8 +19,10 @@ public class MainAPI {
 
 
 	@GET
-	@Produces(MediaType.TEXT_PLAIN)
-	public String test() {
+	@Path("/getdata")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public String test(String request) {
 		System.out.println("coming");
 		return "yes";
 	}
@@ -32,7 +34,7 @@ public class MainAPI {
 
 
 	@POST
-	@Path("/p")
+	@Path("/postdata")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public String getInfo(String req) {
