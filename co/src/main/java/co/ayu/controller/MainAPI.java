@@ -18,13 +18,25 @@ import co.ayu.to.ApiResponse;
 public class MainAPI {
 
 
+
 	@GET
 	@Path("/getdata")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public String test(String request) {
+	public String test() {
 		System.out.println("coming");
-		return "yes";
+	
+		ApiRequest request= new ApiRequest();
+		request.setName("sangita");
+		request.setLoginID("S23");
+		request.setRollno(2435421);
+		request.setPhone("8604104636");
+		request.setStudentAdd("kolkata");
+		request.setTxnType("Registration");
+		ApiResponse response=null;
+		String txnType=request.getTxnType();
+		response=Register.doRegister(request);
+		return "done";
 	}
 
 	//creating the apirequest object here which will come from device itself.
@@ -37,7 +49,7 @@ public class MainAPI {
 	@Path("/postdata")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public String getInfo(String req) {
+	public ApiResponse getInfo(String req) {
 		System.out.println("coming to main api");
 		ApiRequest request= new ApiRequest();
 		request.setName("sangita");
@@ -57,7 +69,7 @@ public class MainAPI {
 			break;
 		}
 		System.out.println("response"+response);
-		return "finally";
+		return response;
 
 	}
 
