@@ -109,8 +109,8 @@ public class MainAPI {
 	
 	@POST
 	@Path("/notification")
-	@Produces(MediaType.APPLICATION_JSON)
-	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.TEXT_PLAIN)
+	@Consumes(MediaType.TEXT_PLAIN)
 	public void notification(String request) throws JsonParseException, JsonMappingException, IOException {
 
 		
