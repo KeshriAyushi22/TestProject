@@ -18,6 +18,11 @@ public class Register {
 				stuReq.setCollegeNmae(request.getCollegeNmae());
 				stuReq.setEmailID(request.getEmailID());
 				stuReq.setType(request.getType());
+				stuReq.setAndroidId(request.getAndroidId());
+				stuReq.setCollegeID(request.getCollegeID());
+				stuReq.setGender(request.getStudentPhone());
+				stuReq.setRegisterToken(request.getRegisterToken());
+				stuReq.setDob(request.getDob());
 				stuReq.setStatus("10001");  //this status shows its confirmation is pending.
 				DaoImpl.saveData(stuReq);
 				regResponse.setResCode("0000");
