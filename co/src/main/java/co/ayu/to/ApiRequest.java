@@ -10,41 +10,81 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonInclude(value = Include.NON_EMPTY)
 public class ApiRequest {
 
-	
-	@JsonProperty("ID")
-	private String loginID;
-	@JsonProperty("name")
-	private String name;
-	@JsonProperty("phoneNo")
-	private String phone;
-	@JsonProperty("ps")
+	@JsonProperty("stuName")
+	private String studentName;
+	@JsonProperty("colName")
+	private String collegeNmae;
+	@JsonProperty("mob")
+	private String studentPhone;
+	@JsonProperty("email")
+	private String emailID;
+	@JsonProperty("colID")
+	private String collegeID;
+	@JsonProperty("DOB")
+	private String dob;
+	@JsonProperty("androidId")
+	private String androidId;
+	@JsonProperty("regToken")
+	private String registerToken;
+	@JsonProperty("gen")
+	private String gender;
+	@JsonProperty("photo")
+	private String photo;
+	@JsonProperty("pass")
 	private String password;
-	@JsonProperty("txnType")
-	private String txnType;
-	@JsonProperty("rn")
-	private int rollno;
-	@JsonProperty("address")
-	private String studentAdd;
+	@JsonProperty("type")
+	private String type; //used in login if type=google then no pswd else pswd check.
 	
-	public String getStudentAdd() {
-		return studentAdd;
-	}
-	public void setStudentAdd(String studentAdd) {
-		this.studentAdd = studentAdd;
-	}
 	
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
 	
-	public String getPhone() {
-		return phone;
+	
+	
+	public String getCollegeNmae() {
+		return collegeNmae;
 	}
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setCollegeNmae(String collegeNmae) {
+		this.collegeNmae = collegeNmae;
+	}
+	public String getEmailID() {
+		return emailID;
+	}
+	public void setEmailID(String emailID) {
+		this.emailID = emailID;
+	}
+	public String getDob() {
+		return dob;
+	}
+	public void setDob(String dob) {
+		this.dob = dob;
+	}
+	public String getAndroidId() {
+		return androidId;
+	}
+	public void setAndroidId(String androidId) {
+		this.androidId = androidId;
+	}
+	public String getRegisterToken() {
+		return registerToken;
+	}
+	public void setRegisterToken(String registerToken) {
+		this.registerToken = registerToken;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	public String getPhoto() {
+		return photo;
+	}
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}public String getCollegeID() {
+		return collegeID;
+	}
+	public void setCollegeID(String collegeID) {
+		this.collegeID = collegeID;
 	}
 	public String getPassword() {
 		return password;
@@ -52,26 +92,37 @@ public class ApiRequest {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getTxnType() {
-		return txnType;
+	public String getType() {
+		return type;
 	}
-	public void setTxnType(String txnType) {
-		this.txnType = txnType;
+	public void setType(String type) {
+		this.type = type;
 	}
-	public String getLoginID() {
-		return loginID;
+	public String getStudentID() {
+		return collegeID;
 	}
-	public void setLoginID(String loginID) {
-		this.loginID = loginID;
+	public void setStudentID(String studentID) {
+		this.collegeID = studentID;
 	}
-	public int getRollno() {
-		return rollno;
+	public String getStudentName() {
+		return studentName;
 	}
-	public void setRollno(int rollno) {
-		this.rollno = rollno;
+	public void setStudentName(String studentName) {
+		this.studentName = studentName;
 	}
 	
-	
-	
+	public String getStudentPhone() {
+		return studentPhone;
+	}
+	public void setStudentPhone(String studentPhone) {
+		this.studentPhone = studentPhone;
+	}
+	@Override
+	public String toString() {
+		return "ApiRequest [studentName=" + studentName + ", collegeNmae=" + collegeNmae + ", studentPhone="
+				+ studentPhone + ", emailID=" + emailID + ", collegeID=" + collegeID + ", dob=" + dob + ", androidId="
+				+ androidId + ", registerToken=" + registerToken + ", gender=" + gender + ", photo=" + photo
+				+ ", password=" + password + ", type=" + type + "]";
+	}
 
 }
