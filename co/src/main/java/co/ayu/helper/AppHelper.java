@@ -24,6 +24,7 @@ public class AppHelper {
 		urlConnection.setDoOutput(true);
 		urlConnection.setRequestMethod("POST");
 		urlConnection.setRequestProperty("content-type",contentType);
+		urlConnection.setRequestProperty("Authorization", "key=AAAA-bmfUIY:APA91bE9SP46imyvghyCwyglFi_ct29jHFUqhEpl6WkPFBcFE7UQPUIZ1bALXJflkZ92tYCjPmZdhHn1ul9NXyemgTaicUjm16OdUyP7_bUpifMgTLFvDyaKisQorF4y_DIU3yggR5Ao");
 		// send request
 		BufferedWriter br = new BufferedWriter(new OutputStreamWriter(urlConnection.getOutputStream()));
 		br.write(ReqParameters);

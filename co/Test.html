@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		var form = $("#myForm");
+
+		form.submit(function(e) {
+			$(this).attr("disabled", "disabled");
+			var formData = form.serializeArray();
+			var data1 = {
+				
+					to : formData[0].value,
+					data : {
+						title : formData[1].value,
+						content : formData[2].value
+					}
+			
+			};
+			console.log(data1);
+
+			e.preventDefault();
+			$.ajax({
+				type : form.attr('method'),
+				url : form.attr('action'),
+				data : JSON.stringify(data1),
+				dataType : "json",
+
+				success : function(data) {
+					$(".response").text("success");
+				},
+				error : function(data) {
+					$(".response").text("error");
+				}
+			});
+
+		});
+	});
+</script>
+</head>
+<body>
+
+	<h2>FireBase Form</h2>
+	<form id="myForm" method="post"
+		action="http://localhost:8282/co/api/txn/notification"
+		enctype="application/json">
+		<!-- nested attributes -->
+		RegisterationToken:<br> <input id="token" type="text"
+			name="token" /> <br> <br> Data:<br> Title:<br> <input
+			id="name" type="text" name="name" /><br> Content:<br>
+		<input id="dob" type="text" name="dob" /> <br> <br> <input
+			type="submit" />
+	</form>
+
+	<div class="response">results:</div>
+	<p>If you click the "Submit" button, the form-data will be sent to
+		firebase api .</p>
+
+</body>
+</html>
+
+

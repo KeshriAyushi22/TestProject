@@ -1,5 +1,4 @@
 co\ayu\to\Message.class
-co\ayu\to\Notify.class
 co\ayu\dao\DaoImpl.class
 co\ayu\to\ApiResponse.class
 co\ayu\to\StudentDetails.class

@@ -3,15 +3,15 @@ package co.ayu.to;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Message {
-	@JsonProperty("token")
-	private	String token;
+	@JsonProperty("to")
+	private	String to;
 	@JsonProperty("data")
 	private Data data;
-	public String getToken() {
-		return token;
+	public String getTo() {
+		return to;
 	}
-	public void setToken(String token) {
-		this.token = token;
+	public void setTo(String token) {
+		this.to = token;
 	}
 	public Data getData() {
 		return data;
@@ -21,7 +21,7 @@ public class Message {
 	}
 	@Override
 	public String toString() {
-		return "Message [token=" + token + ", data=" + data + "]";
+		return "Message [token=" + to+ ", data=" + data + "]";
 	}
 
 

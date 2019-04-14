@@ -1,19 +1,20 @@
 package co.ayu.to;
 
 public class Data {
-private String name;
-private String dob;
-public String getName() {
-	return name;
+private String title;
+private String content;
+public String getTitle() {
+	return title;
 }
-public void setName(String name) {
-	this.name = name;
+public void setTitle(String title) {
+	this.title = title;
 }
-public String getDob() {
-	return dob;
+public String getContent() {
+	return content;
 }
-public void setDob(String dob) {
-	this.dob = dob;
+public void setContent(String content) {
+	this.content = content;
 }
+
 
 }

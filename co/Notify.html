@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+
+  //Stops the submit request
+  $("#notification").submit(function(e) {
+    e.preventDefault();
+  });
+
+  //checks for the button click event
+  $("#uploadButton").click(function(e) {
+
+        //get the form data and then serialize that
+        var json = JSON.parse(JSON.stringify(jQuery('#notification').serializeArray()));
+
+        $.ajax({
+        type: "POST",
+        url: "https://demoapp-ayu.herokuapp.com/api/txn/notification",
+        data: json,
+        crossDomain: true,
+        dataType: "application/json",
+        //if received a response from the server
+        success: function(response) {
+                $("#uploadResponse").append(response);
+        },
+        });
+  });
+
+});
+</script>
+</head>
+<body>
+
+<h2>FireBase Form</h2>
+
+
+<form id ="notification" method="post" action="https://demoapp-ayu.herokuapp.com/api/txn/notification" >
+ 
+  <!-- nested attributes -->
+  RegisterationToken:<br>
+    <input type="text" name="message[token]" />
+    <br><br>
+    Data:<br>
+     Name:<br>
+    <input type="text" name="message[data][name]"  /><br>
+    Date of Birth:<br>
+    <input type="text" name="address[data][dob]"  />
+     <br><br>
+
+  <input id="uploadButton" type="button" value="Submit" />
+</form> 
+<div class="response">response:</div>
+<p>If you click the "Submit" button, the form-data will be sent to firebase api .</p>
+
+</body>
+</html>
+
+
