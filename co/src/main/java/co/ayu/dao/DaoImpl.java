@@ -12,6 +12,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
+import co.ayu.to.Adrino;
 import co.ayu.to.ApiRequest;
 import co.ayu.to.StudentDetails;
 import co.ayu.util.HibernateUtil;
@@ -36,6 +37,15 @@ public static List<StudentDetails> getStudentList(ApiRequest request){
 	criteria.add(Restrictions.eq("emailID", request.getEmailID()));
 	List<StudentDetails> list= criteria.list();
 	return list;
+}
+
+public static void save(Adrino request) {
+	Session session = HibernateUtil.getSessionFactory().openSession();
+	Transaction tx = session.beginTransaction();
+    
+	session.save(request);
+	tx.commit();
+	session.close();  
 }
 		
 }

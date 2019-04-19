@@ -20,14 +20,16 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
+import com.mysql.cj.core.log.NullLogger;
 
 import co.ayu.constants.TxnType;
+import co.ayu.dao.DaoImpl;
 import co.ayu.helper.AppHelper;
 import co.ayu.helper.JsonHelper;
 import co.ayu.helper.ValidationHelper;
 import co.ayu.service.Login;
 import co.ayu.service.Register;
+import co.ayu.to.Adrino;
 import co.ayu.to.ApiRequest;
 import co.ayu.to.ApiResponse;
 import co.ayu.to.Message;
@@ -144,7 +146,7 @@ public class MainAPI {
 	@Path("/upload")
 	@Consumes(MediaType.MULTIPART_FORM_DATA)
 public void uploadFile(InputStream inputStream ) throws IOException,FileNotFoundException{
-		String fileLocation ="https://morejust.herokuapp.com/file";
+		String fileLocation ="C:\\Users\\Ayushi\\Desktop\\images.txt";
 		OutputStream out = new FileOutputStream(new File(fileLocation));
 		int read=0;
 		byte[] bytes= new byte[1024];
@@ -158,7 +160,33 @@ public void uploadFile(InputStream inputStream ) throws IOException,FileNotFound
 		
 		
 
+	@POST
+	@Path("/id")
+	@Produces(MediaType.APPLICATION_JSON)
+
+	public ApiResponse testId(String request) throws JsonParseException, JsonMappingException, IOException {
+
+	  
+	  ObjectMapper mapper = new ObjectMapper();
+		ApiRequest req= mapper.readValue(request, ApiRequest.class);
+		ApiResponse response = new ApiResponse();
+		if(!IsNullorEmpty.isNullOrEmpty(req)) {
+	        Adrino ad= new Adrino();
+	       ad.setAdrinoId(req.getAdrinoId());
+	         DaoImpl.save(ad);
+		
+	       
+	        response.setResStatus("Success");
+	        response.setResCode("0000");
+	        }else{
+	        	 response.setErrorStatus("DataInvalid");
+	        	 response.setErrorCode("1111");
+	        }
+		return response;
+		
 	
+
+	}
 	
 
 

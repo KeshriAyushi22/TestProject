@@ -8,6 +8,7 @@ co\ayu\util\IsNullorEmpty.class
 co\ayu\util\HibernateUtil.class
 co\ayu\controller\MainAPI.class
 co\ayu\helper\AppHelper.class
+co\ayu\to\Adrino.class
 co\ayu\helper\JsonHelper.class
 co\ayu\service\Register.class
 co\ayu\to\Data.class

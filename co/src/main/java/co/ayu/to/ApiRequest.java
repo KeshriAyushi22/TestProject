@@ -34,11 +34,18 @@ public class ApiRequest {
 	private String password;
 	@JsonProperty("type")
 	private String type; //used in login if type=google then no pswd else pswd check.
+	@JsonProperty("adrinoId")
+	private String adrinoId; 
 	
 	
 	
 	
-	
+	public String getAdrinoId() {
+		return adrinoId;
+	}
+	public void setAdrinoId(String adrinoId) {
+		this.adrinoId = adrinoId;
+	}
 	public String getCollegeNmae() {
 		return collegeNmae;
 	}
